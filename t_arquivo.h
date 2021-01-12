@@ -6,7 +6,4 @@
 	#include <stdbool.h>
 #endif
 
-void visualizao_hexa(FILE *);
-//void visualizao_octal();
-//void bin();
-//void visualizacao_bin();
+void data_dump(FILE *, char *);
