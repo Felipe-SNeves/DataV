@@ -3,17 +3,24 @@
 int main(int argc, char ** argv)
 {
 	FILE * pf = NULL;
+	int i = 1;
 
-	switch(argc)
-	{
-		case 1: puts("Erro!"); exit(1);
-		case 2: if((pf = fopen(*(argv+1), "rb"))==NULL)
-			{
-				puts("Não abri!");
-				exit(1);
-			}
+	if(argc==1){
+		puts("Sintaxe: datav arquivo_1, [arquivo_2], ... [arquivo_n]");
+		exit(EXIT_FAILURE);
 	}
 
-	visualizao_hexa(pf);
+	while(i<argc){
+		
+		if((pf=fopen(*(argv+i),"rb"))!=NULL){
+			data_dump(pf,*(argv+i));
+			fclose(pf);	
+		}
+		else
+			printf("Nao foi possível abrir o arquivo %s\n\n", *(argv+i));
 
+		i++;
+	}
+
+	exit(EXIT_SUCCESS);
 }

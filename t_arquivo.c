@@ -3,10 +3,12 @@
 static int proximo(int);
 static void apres(const char *, int);
 
-void visualizao_hexa(FILE * pf)
+void data_dump(FILE * pf, char * nome)
 {
         unsigned char buffer[1], caracteres[16];
         int i = 0;
+
+		printf("%s:\n", nome);
 
         while(fread(buffer,1,1,pf)>0)
 	{
@@ -29,6 +31,7 @@ void visualizao_hexa(FILE * pf)
 	apres(caracteres,16-(i%16));
 
         putchar('\n');
+		putchar('\n');
 }
 
 static int proximo(int i)
