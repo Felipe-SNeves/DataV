@@ -52,6 +52,8 @@ static void apres(const char * c, int offset)
 	}
 
 	printf("  ");
+	if(max%2)
+		putchar(' ');
 
 	while(i<16-max)
 	{
